@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="wrapper">
+    <div class="header-container">
+      <div class="site-branding">
+        <a href="{{ site.baseurl }}/" class="site-logo">
+          <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="{{ site.title }}" width="40" height="40">
+          <span class="site-title">{{ site.title }}</span>
+        </a>
+      </div>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        
+        <ul class="nav-menu">
+          <li><a href="{{ site.baseurl }}/" {% if page.url == '/' %}class="active"{% endif %}>Beranda</a></li>
+          <li><a href="{{ site.baseurl }}/kategori/tasawuf">Tasawuf & Jiwa</a></li>
+          <li><a href="{{ site.baseurl }}/kategori/psikologi">Psikologi Spiritual</a></li>
+          <li><a href="{{ site.baseurl }}/kategori/filsafat">Filsafat Reflektif</a></li>
+          <li><a href="{{ site.baseurl }}/catatan-senja">Catatan Senja</a></li>
+          <li><a href="{{ site.baseurl }}/about/">Tentang</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon">🌙</span>
+        </button>
+        <button class="search-toggle" aria-label="Toggle search">🔍</button>
+      </div>
+    </div>
+
+    {% include search.html %}
+  </div>
+</header>
