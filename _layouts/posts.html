@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/Article">
+  <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
+  <meta itemprop="dateModified" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+  <meta itemprop="mainEntityOfPage" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  <meta itemprop="author" content="{{ page.author | default: site.author }}">
+  
+  <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="{{ site.title }}">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="{{ site.url }}{{ site.baseurl }}/assets/images/logo.png">
+    </div>
+  </div>
+
+  <header class="post-header">
+    <div class="post-meta-top">
+      <span class="post-category" itemprop="articleSection">
+        {% for category in page.categories %}
+        <a href="{{ site.baseurl }}/kategori/{{ category | slugify }}">{{ category }}</a>
+        {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </span>
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%d %B %Y" }}
+      </time>
+    </div>
+
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title }}</h1>
+
+    <div class="post-meta-bottom">
+      <span class="reading-time" itemprop="timeRequired">
+        {% assign words = content | number_of_words %}
+        {% if words < 360 %} 1 menit {% else %} {{ words | divided_by:180 }} menit {% endif %} membaca
+      </span>
+      <div class="post-tags" itemprop="keywords">
+        {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}" class="tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <div class="post-share">
+    <h3>Bagikan renungan ini</h3>
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" rel="noopener" class="share-btn twitter">Twitter</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" rel="noopener" class="share-btn facebook">Facebook</a>
+      <a href="https://api.whatsapp.com/send?text={{ page.title | uri_escape }} {{ site.url }}{{ site.baseurl }}{{ page.url }}" target="_blank" rel="noopener" class="share-btn whatsapp">WhatsApp</a>
+    </div>
+  </div>
+
+  {% if page.comments %}
+  <div class="post-comments">
+    <h3>Refleksi dari pembaca</h3>
+    <script src="https://utteranc.es/client.js"
+            repo="senjamerah/senjamerah.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+  {% endif %}
+</article>
