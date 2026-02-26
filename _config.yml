@@ -1,0 +1,65 @@
+# Senja Merah - Konfigurasi Utama
+title: "Senja Merah"
+tagline: "Refleksi Jiwa untuk Generasi Modern"
+email: "hello@senjamerah.com"
+author: "Senja Merah"
+description: >-
+  Menjelajahi kedalaman tasawuf, filsafat, dan psikologi spiritual.
+  Refleksi jiwa untuk pencari makna di era modern.
+url: "https://senja-merah.github.io"
+baseurl: "/senja-merah"
+twitter_username: senjamerah
+github_username: senjamerah
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Pagination
+paginate: 5
+paginate_path: "/page/:num/"
+
+# Categories & Tags
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: '/kategori/:name/'
+    tag: '/tag/:name/'
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Senja Merah"
+      comments: true
+      image: /assets/images/default-og.jpg
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
