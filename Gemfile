@@ -1,9 +1,19 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.2"
-gem "jekyll-feed", "~> 0.17"
-gem "jekyll-seo-tag", "~> 2.8"
-gem "jekyll-sitemap", "~> 1.4"
-gem "jekyll-paginate", "~> 1.1"
-gem "jekyll-archives", "~> 2.2"
+# GitHub Pages - gunakan versi yang kompatibel
+gem "github-pages", group: :jekyll_plugins
+
+# Jika ingin gem tambahan yang kompatibel
+group :jekyll_plugins do
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-paginate"
+  gem "jekyll-archives"
+end
+
+# Windows timezone
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Untuk lokal server
 gem "webrick", "~> 1.8"
