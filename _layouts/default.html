@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+{% include head.html %}
+
+<body class="{% if page.dark %}dark-mode{% endif %}">
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  {% include header.html %}
+
+  <main class="main-content" aria-label="Content">
+    <div class="wrapper">
+      <div class="content-grid">
+        <article class="content-main">
+          {{ content }}
+        </article>
+        {% include sidebar.html %}
+      </div>
+    </div>
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/search.js"></script>
+</body>
+</html>
