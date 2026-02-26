@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://senja-merah.github.io/senja-merah/sitemap.xml
